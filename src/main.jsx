@@ -12,6 +12,7 @@ import AppliedJobs from './components/AppliedJobs/AppliedJobs';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,8 +29,7 @@ const router = createBrowserRouter([
       },
 
       {
-        
-
+ 
       }
 
     ]
