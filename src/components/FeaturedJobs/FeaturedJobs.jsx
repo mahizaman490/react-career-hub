@@ -3,6 +3,7 @@ import Job from "../CategoryList/Job/Job";
 
 const FeaturedJobs = () => {
     const [jobs,setJobs] = useState([])
+    const [dataLength,setDataLength] = useState(4)
     useEffect(()=>{
         fetch('jobs.json')
         .then(res => res.json())
@@ -15,14 +16,16 @@ const FeaturedJobs = () => {
             <p>Explore thousands of job opperrtunities with all the information you need. Its your Future</p>
         </div>
 
-   <div>
+   <div className="grid grid-cols-2  gap-6">
     {
-        jobs.map(job => <Job key={job.id} job={job}></Job>)
+        jobs.slice(0,dataLength).map(job => <Job key={job.id} job={job}></Job>)
     }
-
+   
 
    </div>
-
+          <div className={dataLength===jobs.length && 'hidden'}>
+            <button onClick={() => setDataLength(jobs.length)} className="btn bg-gradient-to-r from-indigo-300 from-10% via-sky-300 via-30% to-emerald-300 to-90% ...">Show All Jobs</button>
+          </div>
       </div>
     );
 };
